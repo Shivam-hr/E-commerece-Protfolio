@@ -3,17 +3,12 @@ import desktopPhoto from "../Images/Desktop-phone.png";
 import {
   MessageCircle,
   PlayCircle,
-  ArrowUpRight,
   Heart,
   ShoppingBag,
   GraduationCap,
   Building2,
   UtensilsCrossed,
   MoreHorizontal,
-  Monitor,
-  Settings,
-  ShoppingCart,
-  Compass,
 } from "lucide-react";
 
 const workWith = [
@@ -23,13 +18,6 @@ const workWith = [
   { icon: Building2, label: "Real Estate" },
   { icon: UtensilsCrossed, label: "Restaurants" },
   { icon: MoreHorizontal, label: "& More" },
-];
-
-const floatingCards = [
-  { icon: Monitor, title: "Web Design", copy: "Modern websites that look beautiful and convert." },
-  { icon: Settings, title: "Automation", copy: "Smart workflows to save time and reduce manual work." },
-  { icon: ShoppingCart, title: "E-commerce", copy: "Online stores that sell more and grow your brand." },
-  { icon: Compass, title: "Digital Strategy", copy: "Systems and planning that drive long-term growth." },
 ];
 
 export default function Hero() {
@@ -72,50 +60,15 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: image + cards, side by side, image now dominates the section height */}
-        <div className="flex items-stretch gap-5 xl:gap-6">
-         <div className="relative rounded-card overflow-hidden aspect-[5/4] h-[440px] sm:h-[500px] lg:h-[560px] xl:h-[600px] shadow-floating bg-cream">
-            <Image
-              src={desktopPhoto}
-              alt="Shivam Digital Studio homepage shown on desktop and mobile"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div
-              className="absolute inset-0"
-              style={{ background: "radial-gradient(120% 100% at 50% 45%, transparent 45%, rgba(0,0,0,0.14) 100%)" }}
-            />
-          </div>
-
-          <div className="hidden lg:block relative w-[190px] shrink-0">
-            <svg className="absolute -left-4 top-0 h-full w-8 overflow-visible" viewBox="0 0 32 600" preserveAspectRatio="none">
-              <path
-                d="M 16 30 C 26 90, 6 130, 16 180 S 26 270, 16 320 S 6 410, 16 460"
-                fill="none"
-                stroke="rgba(18,18,18,0.18)"
-                strokeWidth="1.5"
-                strokeDasharray="1 7"
-                strokeLinecap="round"
-              />
-            </svg>
-
-            <div className="flex flex-col justify-between h-full">
-              {floatingCards.map(({ icon: Icon, title, copy }, i) => (
-                <div key={title} className="relative">
-                  <span className={`absolute -left-4 top-5 w-[6px] h-[6px] rounded-full ${i % 2 === 0 ? "bg-accent" : "bg-[#D8D2C4]"}`} />
-                  <div className="bg-cardWarm rounded-2xl px-4 py-3.5 shadow-floating">
-                    <div className="w-8 h-8 rounded-lg bg-accent/25 flex items-center justify-center mb-2.5">
-                      <Icon size={15} strokeWidth={1.75} className="text-ink" />
-                    </div>
-                    <div className="font-display font-semibold text-sm text-ink mb-0.5">{title}</div>
-                    <div className="text-[11.5px] text-muted leading-snug">{copy}</div>
-                    <ArrowUpRight size={12} className="text-mutedLight ml-auto mt-1.5" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Right: single composite image — cards are already part of this picture */}
+        <div className="relative rounded-card overflow-hidden aspect-[5/4] w-full h-[440px] sm:h-[500px] lg:h-[560px] xl:h-[620px] bg-cream">
+          <Image
+            src={desktopPhoto}
+            alt="Shivam Digital Studio homepage shown on desktop and mobile, with service highlights for Web Design, Automation, E-commerce and Digital Strategy"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
       </div>
     </section>
