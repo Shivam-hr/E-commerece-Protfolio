@@ -73,13 +73,13 @@ export default function Hero() {
 
           <div className="flex gap-3 mb-10 flex-wrap">
             
-              href="#contact"
+            <a  href="#contact"
               className="bg-ink text-white text-[15px] font-medium px-6 py-3.5 rounded-btn flex items-center gap-2"
             >
               <MessageCircle size={18} /> Chat on WhatsApp
             </a>
             
-              href="#work"
+             <a href="#work"
               className="bg-transparent text-ink text-[15px] font-medium px-6 py-3.5 rounded-btn border border-[#D8D2C4] flex items-center gap-2"
             >
               <PlayCircle size={18} /> View Our Work

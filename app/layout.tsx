@@ -1,20 +1,13 @@
+
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
-// @ts-expect-error - Next.js handles global CSS imports in app/layout.tsx
-import "./globals.css";
 import { Playfair_Display, Inter } from "next/font/google";
+import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-playfair",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["500", "700"],
-  variable: "--font-space-grotesk",
 });
 
 const inter = Inter({
@@ -36,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${inter.variable} font-body`}>
+      <body className={`${playfairDisplay.variable} ${inter.variable} font-body`}>
         {children}
       </body>
     </html>
