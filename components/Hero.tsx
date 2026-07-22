@@ -35,7 +35,7 @@ const floatingCards = [
 export default function Hero() {
   return (
     <section className="px-8 lg:px-16 pt-8 lg:pt-10 pb-16 lg:pb-24">
-      <div className="grid lg:grid-cols-[0.85fr_1.3fr] gap-10 lg:gap-12 items-center">
+      <div className="grid lg:grid-cols-[1fr_1.35fr] gap-10 lg:gap-12 items-center">
         <div>
           <div className="inline-flex items-center gap-2 bg-cardSoft border border-border rounded-full px-4 py-2 text-xs text-muted mb-7">
             <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" />
@@ -72,9 +72,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: image + cards, real flex children, side by side — no overlap possible */}
-        <div className="flex items-center gap-6 xl:gap-8">
-          <div className="relative rounded-card overflow-hidden flex-[1.6] aspect-[5/4] shadow-floating">
+        {/* Right: image + cards, side by side, image now dominates the section height */}
+        <div className="flex items-stretch gap-5 xl:gap-6">
+         <div className="relative rounded-card overflow-hidden aspect-[5/4] h-[440px] sm:h-[500px] lg:h-[560px] xl:h-[600px] shadow-floating bg-cream">
             <Image
               src={desktopPhoto}
               alt="Shivam Digital Studio homepage shown on desktop and mobile"
@@ -88,10 +88,10 @@ export default function Hero() {
             />
           </div>
 
-          <div className="hidden lg:block relative w-[230px] shrink-0 self-stretch">
-            <svg className="absolute -left-5 top-0 h-full w-8 overflow-visible" viewBox="0 0 32 600" preserveAspectRatio="none">
+          <div className="hidden lg:block relative w-[190px] shrink-0">
+            <svg className="absolute -left-4 top-0 h-full w-8 overflow-visible" viewBox="0 0 32 600" preserveAspectRatio="none">
               <path
-                d="M 16 40 C 28 110, 4 160, 16 220 S 28 330, 16 390 S 4 500, 16 560"
+                d="M 16 30 C 26 90, 6 130, 16 180 S 26 270, 16 320 S 6 410, 16 460"
                 fill="none"
                 stroke="rgba(18,18,18,0.18)"
                 strokeWidth="1.5"
@@ -100,17 +100,17 @@ export default function Hero() {
               />
             </svg>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col justify-between h-full">
               {floatingCards.map(({ icon: Icon, title, copy }, i) => (
                 <div key={title} className="relative">
-                  <span className={`absolute -left-5 top-8 w-[7px] h-[7px] rounded-full ${i % 2 === 0 ? "bg-accent" : "bg-[#D8D2C4]"}`} />
-                  <div className="bg-cardWarm rounded-[22px] px-5 py-4 shadow-floating">
-                    <div className="w-10 h-10 rounded-[10px] bg-accent/25 flex items-center justify-center mb-3">
-                      <Icon size={18} strokeWidth={1.75} className="text-ink" />
+                  <span className={`absolute -left-4 top-5 w-[6px] h-[6px] rounded-full ${i % 2 === 0 ? "bg-accent" : "bg-[#D8D2C4]"}`} />
+                  <div className="bg-cardWarm rounded-2xl px-4 py-3.5 shadow-floating">
+                    <div className="w-8 h-8 rounded-lg bg-accent/25 flex items-center justify-center mb-2.5">
+                      <Icon size={15} strokeWidth={1.75} className="text-ink" />
                     </div>
-                    <div className="font-display font-semibold text-[16px] text-ink mb-1">{title}</div>
-                    <div className="text-[13px] text-muted leading-snug pr-3">{copy}</div>
-                    <ArrowUpRight size={14} className="text-mutedLight ml-auto mt-2" />
+                    <div className="font-display font-semibold text-sm text-ink mb-0.5">{title}</div>
+                    <div className="text-[11.5px] text-muted leading-snug">{copy}</div>
+                    <ArrowUpRight size={12} className="text-mutedLight ml-auto mt-1.5" />
                   </div>
                 </div>
               ))}
