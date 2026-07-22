@@ -8,15 +8,17 @@ const config: Config = {
   theme: {
     extend: {
     colors: {
-  cream: "#F7F5EE",
-  card: "#FFFFFF",
-  cardSoft: "#FCFBFA",
-  border: "#EAE6DC",
-  ink: "#121212",
-  muted: "#555555",
-  mutedLight: "#8A8578",
-  accent: "#C4E843",
-  accentHover: "#B3D437",
+      cream: "#F7F5EE",
+      card: "#FFFFFF",
+      cardSoft: "#FCFBFA",
+      border: "#EAE6DC",
+      ink: "#121212",
+      muted: "#555555",
+      mutedLight: "#8A8578",
+      accent: "#C4E843",
+      accentHover: "#B3D437",
+      cardWarm: "#FBF8F0",
+      
     },
     fontFamily: {
       display: ["var(--font-playfair)", "serif"],
