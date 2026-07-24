@@ -22,8 +22,8 @@ const workWith = [
 
 export default function Hero() {
   return (
-    <section className="px-8 lg:px-16 pt-8 lg:pt-10 pb-16 lg:pb-24">
-      <div className="grid lg:grid-cols-[1fr_1.35fr] gap-10 lg:gap-12 items-center">
+    <section className="pl-8 lg:pl-16 pr-4 lg:pr-8 pt-8 lg:pt-10 pb-16 lg:pb-24">
+  <div className="grid lg:grid-cols-[0.8fr_1.6fr] gap-8 lg:gap-10 items-center">
         <div>
           <div className="inline-flex items-center gap-2 bg-cardSoft border border-border rounded-full px-4 py-2 text-xs text-muted mb-7">
             <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" />
@@ -61,15 +61,15 @@ export default function Hero() {
         </div>
 
         {/* Right: single composite image — cards are already part of this picture */}
-        <div className="relative rounded-card overflow-hidden aspect-[5/4] w-full h-[440px] sm:h-[500px] lg:h-[560px] xl:h-[620px] bg-cream">
-          <Image
-            src={desktopPhoto}
-            alt="Shivam Digital Studio homepage shown on desktop and mobile, with service highlights for Web Design, Automation, E-commerce and Digital Strategy"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
+     <div className="relative w-full aspect-[3/2]">
+        <Image
+          src={desktopPhoto}
+          alt="Hero Image"
+          fill
+          className="object-contain"
+          priority
+        />
+</div>
       </div>
     </section>
   );
