@@ -38,7 +38,7 @@ export default function Hero() {
           <p className="text-muted text-lg leading-relaxed max-w-md mt-7 mb-9">
             We design, build and automate powerful websites and digital
             systems that attract customers, streamline operations and scale
-            your business & free up your time to focus on what matters most.
+            your business.
           </p>
 
           <div className="flex gap-3 mb-10 flex-wrap">
