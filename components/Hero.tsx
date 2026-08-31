@@ -31,7 +31,10 @@ export default function Hero() {
           </div>
 
           <h1 className="font-display font-semibold text-[42px] sm:text-6xl lg:text-[64px] leading-[1.08] tracking-tight text-ink">
-            Digital Experiences That Grow{" "}
+            <span className="whitespace-nowrap">Digital Experiences</span>
+              <br />
+              That Grow
+              <br />
             <span className="font-serif italic font-medium text-accent">Businesses.</span>
           </h1>
 
@@ -41,11 +44,11 @@ export default function Hero() {
             your business.
           </p>
 
-          <div className="flex gap-3 mb-10 flex-wrap">
-            <a href="#contact" className="bg-ink text-white text-[15px] font-medium px-6 py-3.5 rounded-btn flex items-center gap-2">
+          <div className="flex gap-8 mb-10 flex-wrap">
+            <a href="#contact" className="bg-ink text-white text-[15px] font-medium px-6 py-3.5 rounded-xl flex items-center gap-2">
               <MessageCircle size={18} /> Chat on WhatsApp
             </a>
-            <a href="#work" className="bg-transparent text-ink text-[15px] font-medium px-6 py-3.5 rounded-btn border border-[#D8D2C4] flex items-center gap-2">
+            <a href="#work" className="bg-transparent text-ink text-[15px] font-medium px-6 py-3.5 rounded-xl border border-[#D8D2C4] flex items-center gap-2">
               <PlayCircle size={18} /> View Our Work
             </a>
           </div>

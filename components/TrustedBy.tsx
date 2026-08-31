@@ -1,5 +1,7 @@
 const clients = ["Wadhawan Hospital", "US Supplements", "AD Café", "Kanthiveda"];
 
+
+
 export default function TrustedBy() {
   return (
     <div className="px-8 py-5 border-t border-b border-border flex items-center justify-center gap-9 flex-wrap">
