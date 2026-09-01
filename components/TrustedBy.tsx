@@ -11,7 +11,7 @@ const clients = [
 
 export default function TrustedBy() {
   return (
-    <section className="px-15 lg:px-60 py-8 border-t border-b border-border">
+    <section className="px-15 py-0.5 lg:px-60 py-8 border-t border-b border-border">
       <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
         <span className="text-[11px] tracking-[0.15em] text-mutedLight">
           TRUSTED BY BUSINESSES
