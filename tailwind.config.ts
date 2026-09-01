@@ -15,8 +15,8 @@ const config: Config = {
       ink: "#121212",
       muted: "#555555",
       mutedLight: "#8A8578",
-      accent: "#C4E843",
-      accentHover: "#B3D437",
+      accent: "#B3D111",
+      accentHover: "#9CB80D",
       cardWarm: "#FBF8F0",
       
     },
