@@ -1,9 +1,9 @@
 import { ShoppingCart, Heart, Coffee } from "lucide-react";
 
 const projects = [
-  { tag: "E-COMMERCE", icon: ShoppingCart, title: "US Supplements", desc: "A high-performance e-commerce platform for fitness supplements. Built to deliver a seamless shopping experience with speed and trust.", previewColor: "text-[#8A9060]", ctaBg: "bg-accent text-ink", ctaBorder: "border-[#C7CDA0]", reverse: false },
-  { tag: "HEALTHCARE", icon: Heart, title: "Wadhawan Hospital", desc: "A modern hospital website designed to build trust, provide key information, and make appointment booking simple and accessible.", previewColor: "text-[#7C8A99]", ctaBg: "bg-[#3B6EA5] text-white", ctaBorder: "border-[#B9C6D3]", reverse: true },
-  { tag: "RESTAURANT / CAFÉ", icon: Coffee, title: "AD Café", desc: "A cozy, elegant café website showcasing menu, ambiance, and offers with a delightful user experience.", previewColor: "text-[#A38058]", ctaBg: "bg-[#C97A3D] text-white", ctaBorder: "border-[#E0C4A3]", reverse: false },
+  { tag: "E-COMMERCE", icon: ShoppingCart, title: "US Supplements", desc: "...", bg: "bg-[#EFF3E0]", previewColor: "text-[#8A9060]", ctaBg: "bg-accent text-ink", ctaBorder: "border-[#C7CDA0]", reverse: false },
+  { tag: "HEALTHCARE", icon: Heart, title: "Wadhawan Hospital", desc: "...", bg: "bg-[#E9EEF3]", previewColor: "text-[#7C8A99]", ctaBg: "bg-[#3B6EA5] text-white", ctaBorder: "border-[#B9C6D3]", reverse: true },
+  { tag: "RESTAURANT / CAFÉ", icon: Coffee, title: "AD Café", desc: "...", bg: "bg-[#F5EBDD]", previewColor: "text-[#A38058]", ctaBg: "bg-[#C97A3D] text-white", ctaBorder: "border-[#E0C4A3]", reverse: false },
 ];
 
 export default function FeaturedWork() {
@@ -21,10 +21,10 @@ export default function FeaturedWork() {
        A selection of projects where design, technology and strategy come together to create powerful digital experiences.
       </p>
 
-      <div className="relative left-1/2 -translate-x-1/2 w-screen px-[10px]">
-        <div className="space-y-6 max-w-6xl mx-auto">
-          {projects.map(({ tag, icon: Icon, title, desc, previewColor, ctaBg, ctaBorder, reverse }) => (
-            <div key={title} className={`bg-white/40 backdrop-blur-md border border-border rounded-[28px] shadow-floating p-8 lg:p-10 flex flex-wrap gap-8 items-center text-left ${reverse ? "md:flex-row-reverse" : ""}`}>
+    <div className="relative left-1/2 -translate-x-1/2 w-screen px-[40px]">
+    <div className="space-y-6">
+          {projects.map(({ tag, icon: Icon, title, desc, bg, previewColor, ctaBg, ctaBorder, reverse }) => (
+    <div key={title} className={`${bg} rounded-[28px] p-10 lg:p-14 min-h-[420px] flex flex-wrap gap-10 items-center text-left ${reverse ? "md:flex-row-reverse" : ""}`}>
               <div className="flex-1 min-w-[260px]">
                 <div className="flex items-center gap-1.5 text-[11px] text-muted tracking-wide mb-3">
                   <Icon size={14} /> {tag}
@@ -44,9 +44,7 @@ export default function FeaturedWork() {
         </div>
       </div>
 
-      <p className="text-[13px] text-mutedLight mt-6">
-        Kanthiveda (beauty &amp; personal care) — coming soon, added once live
-      </p>
+      
     </section>
   );
 }
