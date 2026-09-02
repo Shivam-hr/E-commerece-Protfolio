@@ -68,7 +68,11 @@ export default function Services() {
       <div className="relative left-1/2 -translate-x-1/2 w-screen px-[30px]">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 text-left">
           {services.map(({ icon: Icon, title, desc }, i) => (
-            <div key={title} className="bg-cardWarm rounded-card p-6 flex flex-col">
+            // CHANGED: added "group" + hover:scale + hover:shadow-floating for the zoom-on-hover effect
+            <div
+              key={title}
+              className="group bg-cardWarm rounded-card p-6 flex flex-col transition-transform duration-300 hover:scale-[1.03] hover:shadow-floating"
+            >
               <div className="flex items-start justify-between mb-4">
                 <div className="w-11 h-11 rounded-xl bg-accent/25 flex items-center justify-center">
                   <Icon size={20} className="text-ink" />
@@ -77,7 +81,11 @@ export default function Services() {
               </div>
               <h3 className="font-display font-semibold text-lg text-ink mb-2">{title}</h3>
               <p className="text-muted text-[13px] leading-relaxed mb-4 flex-1">{desc}</p>
-              <a href="#contact" className="text-ink text-sm font-medium flex items-center gap-1.5">
+              {/* CHANGED: Explore is now a bordered rectangular button that fills dark on card hover */}
+              <a
+                href="#contact"
+                className="inline-flex w-fit items-center gap-1.5 text-ink text-sm font-medium border border-border rounded-btn px-4 py-2 transition-colors group-hover:border-ink group-hover:bg-ink group-hover:text-white"
+              >
                 Explore <ArrowUpRight size={14} />
               </a>
             </div>
