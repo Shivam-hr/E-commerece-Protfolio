@@ -1,4 +1,9 @@
 import { ShoppingCart, Heart, Coffee, Triangle, Atom, Wind, Zap } from "lucide-react";
+import Image from "next/image";
+import usSupplementsPreview from "../Images/us-supplements-preview.png";
+import wadhawanPreview from "../Images/wadhawan-hospital-preview.png";
+import adCafePreview from "../Images/ad-cafe-preview.png";
+
 
 const filters = ["All Projects", "E-commerce", "Healthcare", "Restaurant / Business"];
 
@@ -10,9 +15,9 @@ const techStack = [
 ];
 
 const projects = [
-  { tag: "E-COMMERCE", icon: ShoppingCart, title: "US Supplements", desc: "A high-performance e-commerce platform for fitness supplements. Built to deliver a seamless shopping experience with speed and trust.", bg: "bg-[#EFF3E0]", previewColor: "text-[#8A9060]", ctaBg: "bg-accent text-ink", ctaBorder: "border-[#C7CDA0]", reverse: false },
-  { tag: "HEALTHCARE", icon: Heart, title: "Wadhawan Hospital", desc: "A modern hospital website designed to build trust, provide key information, and make appointment booking simple and accessible.", bg: "bg-[#E9EEF3]", previewColor: "text-[#7C8A99]", ctaBg: "bg-[#3B6EA5] text-white", ctaBorder: "border-[#B9C6D3]", reverse: true },
-  { tag: "RESTAURANT / CAFÉ", icon: Coffee, title: "AD Café", desc: "A cozy, elegant café website showcasing menu, ambiance, and offers with a delightful user experience.", bg: "bg-[#F5EBDD]", previewColor: "text-[#A38058]", ctaBg: "bg-[#C97A3D] text-white", ctaBorder: "border-[#E0C4A3]", reverse: false },
+  { tag: "E-COMMERCE", icon: ShoppingCart, title: "US Supplements", desc: "A high-performance e-commerce platform for fitness supplements. Built to deliver a seamless shopping experience with speed and trust.", bg: "bg-[#EFF3E0]", previewColor: "text-[#8A9060]",previewImage: usSupplementsPreview, ctaBg: "bg-accent text-ink", ctaBorder: "border-[#C7CDA0]", reverse: false },
+  { tag: "HEALTHCARE", icon: Heart, title: "Wadhawan Hospital", desc: "A modern hospital website designed to build trust, provide key information, and make appointment booking simple and accessible.", bg: "bg-[#E9EEF3]", previewColor: "text-[#7C8A99]", ctaBg: "bg-[#3B6EA5] text-white", previewImage: wadhawanPreview, ctaBorder: "border-[#B9C6D3]", reverse: true },
+  { tag: "RESTAURANT / CAFÉ", icon: Coffee, title: "AD Café", desc: "A cozy, elegant café website showcasing menu, ambiance, and offers with a delightful user experience.", bg: "bg-[#F5EBDD]", previewColor: "text-[#A38058]", ctaBg: "bg-[#C97A3D] text-white", previewImage: adCafePreview, ctaBorder: "border-[#E0C4A3]", reverse: false },
 ];
 
 export default function FeaturedWork() {
@@ -50,7 +55,7 @@ export default function FeaturedWork() {
 
       <div className="relative left-1/2 -translate-x-1/2 w-screen px-[40px]">
         <div className="space-y-6">
-          {projects.map(({ tag, icon: Icon, title, desc, bg, previewColor, ctaBg, ctaBorder, reverse }) => (
+          {projects.map(({ tag, icon: Icon, title, desc, bg, previewColor, previewImage, ctaBg, ctaBorder, reverse }) => (
             <div key={title} className={`${bg} rounded-[28px] p-10 lg:p-14 min-h-[420px] flex flex-wrap gap-10 items-center text-left ${reverse ? "md:flex-row-reverse" : ""}`}>
               <div className="flex-1 min-w-[260px]">
                 <div className="flex items-center gap-1.5 text-[11px] text-muted tracking-wide mb-3">
@@ -76,9 +81,16 @@ export default function FeaturedWork() {
                 </div>
               </div>
 
-              <div className={`flex-1 min-w-[260px] h-64 sm:h-72 bg-white/70 border border-white rounded-2xl flex items-center justify-center text-sm ${previewColor}`}>
-                Live site preview
-              </div>
+              {previewImage ? (
+                <div className="relative flex-1 min-w-[260px] h-64 sm:h-72 rounded-2xl overflow-hidden">
+                  <Image src={previewImage} alt={`${title} website preview`} fill className="object-cover" />
+                </div>
+              ) : (
+                <div className={`flex-1 min-w-[260px] h-64 sm:h-72 bg-white/70 border border-white rounded-2xl flex items-center justify-center text-sm ${previewColor}`}>
+                  Live site preview
+                </div>
+              )}
+
             </div>
           ))}
         </div>
