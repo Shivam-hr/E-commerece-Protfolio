@@ -16,6 +16,9 @@ import {
   Github,
   Palette,
 } from "lucide-react";
+import Image from "next/image";
+import usSupplementsPreview from "@/Images/us-supplements-preview.png";
+
 
 const highlights = [
   { icon: Package, value: "250+", label: "Products" },
@@ -106,9 +109,19 @@ export default function USSupplementsOverview() {
             </div>
           </div>
 
-          {/* Hero mockup — swap this placeholder for the real desktop+mobile screenshot composite */}
-          <div className="relative w-full aspect-[16/10] bg-white/60 border border-border rounded-[24px] flex items-center justify-center text-sm text-mutedLight">
-            US Supplements desktop + mobile screenshot
+         
+          {/* Hero mockup */}
+          <div
+            className="relative w-full   overflow-hidden"
+            style={{ aspectRatio: "1496 / 1051" }}
+          >
+            <Image
+              src={usSupplementsPreview}
+              alt="US Supplements website preview"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
         </div>
       </section>
