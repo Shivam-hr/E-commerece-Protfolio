@@ -21,6 +21,8 @@ const projects = [
     previewImage: usSupplementsPreview,
     previewAspect: "1496 / 1051",
     ctaBg: "bg-accent text-ink", ctaBorder: "border-[#C7CDA0]", reverse: false,
+    liveHref: "https://ussuppliments.netlify.app/",  
+    caseStudyHref: "/work/us-supplements",   
   },
   {
     tag: "HEALTHCARE", icon: Heart, title: "Wadhawan Hospital",
@@ -29,6 +31,8 @@ const projects = [
     previewImage: wadhawanPreview,
     previewAspect: "1496 / 1051",
     ctaBg: "bg-[#3B6EA5] text-white", ctaBorder: "border-[#B9C6D3]", reverse: true,
+    liveHref: "https://wadhawan-hospital.netlify.app/",
+    caseStudyHref: "/work/wadhawan-hospital",
   },
   {
     tag: "RESTAURANT / CAFÉ", icon: Coffee, title: "AD Café",
@@ -36,6 +40,8 @@ const projects = [
     bg: "bg-[#F5EBDD]", previewColor: "text-[#A38058]",
     previewImage: adCafePreview,   // ADD THIS LINE
     ctaBg: "bg-[#C97A3D] text-white", ctaBorder: "border-[#E0C4A3]", reverse: false,
+    liveHref: "https://ad-cafe.netlify.app/",
+    caseStudyHref: "/work/ad-cafe",
   },
 ];
 
@@ -66,7 +72,11 @@ export default function FeaturedWork() {
 
       <div className="relative left-1/2 -translate-x-1/2 w-screen px-[40px]">
         <div className="space-y-6">
-          {projects.map(({ tag, icon: Icon, title, desc, bg, previewColor, previewImage, previewAspect, ctaBg, ctaBorder, reverse }) => (
+          {projects.map(({
+            tag, icon: Icon, title, desc, bg, previewColor,
+            previewImage, previewAspect, ctaBg, ctaBorder, reverse,
+            liveHref, caseStudyHref   // ← add these two
+          }) => (
             <div key={title} className={`${bg} rounded-[28px] p-10 lg:p-14 min-h-[420px] flex flex-wrap gap-10 items-center text-left ${reverse ? "md:flex-row-reverse" : ""}`}>
               <div className="flex-1 min-w-[260px]">
                 <div className="flex items-center gap-1.5 text-[13px] text-muted tracking-wide mb-3">
@@ -87,9 +97,22 @@ export default function FeaturedWork() {
                 </div>
 
                 <div className="flex gap-3">
-                  <a href="#" className={`${ctaBg} text-base font-semibold px-5 py-2.5 rounded-btn`}>View Live Site →</a>
-                  <a href="#" className={`bg-transparent text-ink text-base font-medium px-5 py-2.5 rounded-btn border ${ctaBorder}`}>Case Study →</a>
-                </div>
+                  <a
+                  href={liveHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${ctaBg} text-base font-semibold px-5 py-2.5 rounded-btn`}
+                >
+                  View Live Site →
+                </a>
+                
+                <a
+                  href={caseStudyHref}
+                  className={`bg-transparent text-ink text-base font-medium px-5 py-2.5 rounded-btn border ${ctaBorder}`}
+                >
+                  Case Study →
+                </a>
+              </div>
               </div>
 
               {previewImage ? (
