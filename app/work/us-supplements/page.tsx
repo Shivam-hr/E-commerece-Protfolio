@@ -15,10 +15,13 @@ import {
   Zap,
   Github,
   Palette,
+  Briefcase,
+  User,
+  Clock,
+  LayoutGrid,
 } from "lucide-react";
 import Image from "next/image";
 import usSupplementsPreview from "@/Images/us-supplements-preview.png";
-
 
 const highlights = [
   { icon: Package, value: "250+", label: "Products" },
@@ -30,10 +33,18 @@ const highlights = [
 ];
 
 const meta = [
-  { label: "Project", value: "US Supplements — premium e-commerce store for fitness supplements" },
-  { label: "Role", value: "UI Design, UX, Frontend Development, Backend Development, Database" },
-  { label: "Duration", value: "2 – 3 Weeks" },
-  { label: "Project Type", value: "Real Client Project — Live & Production" },
+  {
+    icon: Briefcase,
+    label: "Project",
+    value: "US Supplements — premium e-commerce store for fitness supplements",
+  },
+  {
+    icon: User,
+    label: "Role",
+    value: "UI Design, UX, Frontend Development, Backend Development, Database",
+  },
+  { icon: Clock, label: "Duration", value: "2 – 3 Weeks" },
+  { icon: LayoutGrid, label: "Project Type", value: "Real Client Project — Live & Production" },
 ];
 
 const goals = [
@@ -109,12 +120,8 @@ export default function USSupplementsOverview() {
             </div>
           </div>
 
-         
           {/* Hero mockup */}
-          <div
-            className="relative w-full   overflow-hidden"
-            style={{ aspectRatio: "1496 / 1051" }}
-          >
+          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1496 / 1051" }}>
             <Image
               src={usSupplementsPreview}
               alt="US Supplements website preview"
@@ -127,67 +134,106 @@ export default function USSupplementsOverview() {
       </section>
 
       {/* Key Highlights */}
-      <section className="px-8 lg:px-16 pb-14">
-        <div className="bg-card border border-border rounded-card p-7">
-          <div className="text-xs tracking-[0.15em] text-mutedLight mb-1">KEY</div>
-          <h2 className="font-display font-semibold text-xl text-ink mb-6">Highlights</h2>
-          <div className="flex flex-wrap gap-x-10 gap-y-6">
-            {highlights.map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex flex-col items-start gap-2 min-w-[110px]">
+
+    <section className="px-8 lg:px-16 pb-14">
+      <div className="bg-card border border-accent rounded-card p-7">
+        <div className="flex flex-wrap items-center justify-between gap-8">
+          {/* Stats — left side */}
+          <div className="flex flex-nowrap overflow-x-auto">
+            {highlights.map(({ icon: Icon, value, label }, i) => (
+              <div
+                key={label}
+                className={`flex flex-col items-start gap-2 px-7 shrink-0 first:pl-0 ${
+                  i !== highlights.length - 1 ? "border-r border-border" : ""
+                }`}
+              >
                 <Icon size={20} className="text-ink" />
-                <div className="font-display font-semibold text-lg text-ink leading-tight">{value}</div>
-                <div className="text-xs text-muted">{label}</div>
+                <div className="font-display font-semibold text-lg text-ink leading-tight whitespace-nowrap">
+                  {value}
+                </div>
+                <div className="text-xs text-muted whitespace-nowrap">{label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Heading — right side, unchanged from what you have now */}
+          <div className="shrink-0">
+            <div className="font-heading text-xs tracking-[0.2em] text-mutedLight uppercase mb-1">
+              KEY
+            </div>
+            <h2 className="font-heading font-semibold text-2xl tracking-wide uppercase text-accent mb-1.5">
+              HIGHLIGHTS
+            </h2>
+            <div className="w-10 h-[3px] bg-accent rounded-full" />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Overview / Meta / Goal */}
+      {/* Overview / Meta (narrow, left) + Goal (wide, right) */}
       <section className="px-8 lg:px-16 pb-14">
-        <div className="grid lg:grid-cols-3 gap-5">
-          <div className="bg-card border border-border rounded-card p-7">
-            <h3 className="font-display font-semibold text-lg text-ink mb-3">
-              Project <span className="text-accent italic font-serif">Overview</span>
-            </h3>
-            <p className="text-muted text-[14px] leading-relaxed">
-              US Supplements is a premium e-commerce platform designed for fitness enthusiasts.
-              The store offers authentic supplements from top brands with a seamless shopping
-              experience, secure payments, and automated order updates.
-            </p>
-          </div>
+        <div className="grid lg:grid-cols-[0.85fr_1.55fr] gap-5 items-stretch">
+          {/* Left column: Overview stacked on Meta */}
+          <div className="flex flex-col gap-5">
+            <div className="bg-card border border-border rounded-card p-6">
+              <h3 className="font-heading font-semibold text-lg tracking-wide uppercase text-ink mb-1.5">
+                PROJECT <span className="text-accent">OVERVIEW</span>
+              </h3>
+              <div className="w-7 h-[3px] bg-accent rounded-full mb-3" />
+              <p className="text-muted text-[14px] leading-relaxed">
+                US Supplements is a premium e-commerce platform designed for fitness enthusiasts.
+                The store offers authentic supplements from top brands with a seamless shopping
+                experience, secure payments, and automated order updates.
+              </p>
+            </div>
 
-          <div className="bg-card border border-border rounded-card p-7 space-y-5">
-            {meta.map(({ label, value }) => (
-              <div key={label}>
-                <div className="text-[11px] tracking-[0.1em] text-mutedLight mb-1">
-                  {label.toUpperCase()}
+            <div className="bg-card border border-border rounded-card p-6 space-y-4">
+              {meta.map(({ icon: Icon, label, value }) => (
+                <div key={label} className="flex gap-3">
+                  <Icon size={16} className="text-ink mt-0.5 shrink-0" />
+                  <div>
+                    <div className="font-heading text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-1">
+                      {label}
+                    </div>
+                    <div className="text-[13.5px] text-ink font-medium leading-snug">{value}</div>
+                  </div>
                 </div>
-                <div className="text-[14px] text-ink font-medium leading-snug">{value}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
+          {/* Right column: Goal — text/checklist left, image right, inside one card */}
           <div className="bg-card border border-border rounded-card p-7">
-            <h3 className="font-display font-semibold text-lg text-ink mb-3">
-              The <span className="text-accent italic font-serif">Goal</span>
+            <h3 className="font-heading font-semibold text-xl tracking-wide uppercase text-ink mb-1.5">
+              THE <span className="text-accent">GOAL</span>
             </h3>
-            <p className="text-muted text-[14px] leading-relaxed mb-4">
-              The client needed a store that felt like a real, established brand from day one —
-              not a generic template. That meant a full product catalog with real brands and
-              pricing, a smooth mobile shopping experience, and a checkout flow customers could
-              trust.
-            </p>
-            <ul className="space-y-2">
-              {goals.map((goal) => (
-                <li key={goal} className="flex items-start gap-2 text-[13px] text-ink">
-                  <span className="w-4 h-4 rounded-full bg-accent/30 flex items-center justify-center shrink-0 mt-0.5 text-[10px]">
-                    ✓
-                  </span>
-                  {goal}
-                </li>
-              ))}
-            </ul>
+            <div className="w-8 h-[3px] bg-accent rounded-full mb-4" />
+
+            <div className="grid sm:grid-cols-[1.3fr_1fr] gap-6 items-center">
+              <div>
+                <p className="text-muted text-[14px] leading-relaxed mb-4">
+                  The client needed a store that felt like a real, established brand from day one
+                  — not a generic template. That meant a full product catalog with real brands
+                  and pricing, a smooth mobile shopping experience, and a checkout flow customers
+                  could trust.
+                </p>
+                <ul className="space-y-2">
+                  {goals.map((goal) => (
+                    <li key={goal} className="flex items-start gap-2 text-[13px] text-ink">
+                      <span className="w-4 h-4 rounded-full bg-accent/30 flex items-center justify-center shrink-0 mt-0.5 text-[10px]">
+                        ✓
+                      </span>
+                      {goal}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Product image placeholder — swap for a real product/brand shot */}
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-white/60 border border-border flex items-center justify-center text-xs text-mutedLight">
+                Product image placeholder
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -195,7 +241,10 @@ export default function USSupplementsOverview() {
       {/* Tech Stack */}
       <section className="px-8 lg:px-16 pb-16">
         <div className="bg-card border border-border rounded-card p-7">
-          <div className="text-xs tracking-[0.15em] text-accent mb-1">TECH STACK</div>
+          <h2 className="font-heading font-semibold text-xl tracking-wide uppercase text-ink mb-1.5">
+            TECH <span className="text-accent">STACK</span>
+          </h2>
+          <div className="w-8 h-[3px] bg-accent rounded-full mb-4" />
           <p className="text-muted text-[13px] mb-6 max-w-md">
             A modern, scalable tech stack used to build a fast, secure and high-performance
             e-commerce platform.
@@ -223,7 +272,9 @@ export default function USSupplementsOverview() {
           className="flex items-center justify-between bg-card border border-border rounded-card p-6 hover:border-ink transition-colors"
         >
           <div>
-            <div className="text-[11px] tracking-[0.15em] text-mutedLight mb-1">NEXT UP</div>
+            <div className="font-heading text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-1">
+              NEXT UP
+            </div>
             <div className="font-display font-semibold text-lg text-ink">Process</div>
             <div className="text-muted text-sm mt-1">
               See how we researched, designed and built US Supplements.
