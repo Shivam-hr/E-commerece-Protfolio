@@ -31,7 +31,7 @@ const projects = [
     previewImage: wadhawanPreview,
     previewAspect: "1496 / 1051",
     ctaBg: "bg-[#3B6EA5] text-white", ctaBorder: "border-[#B9C6D3]", reverse: true,
-    liveHref: "https://wadhawan-hospital.netlify.app/",
+    liveHref: "https://comforting-croissant-79ba00.netlify.app/",
     caseStudyHref: "/work/wadhawan-hospital",
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     bg: "bg-[#F5EBDD]", previewColor: "text-[#A38058]",
     previewImage: adCafePreview,   // ADD THIS LINE
     ctaBg: "bg-[#C97A3D] text-white", ctaBorder: "border-[#E0C4A3]", reverse: false,
-    liveHref: "https://ad-cafe.netlify.app/",
+    liveHref: "https://adcafe.netlify.app/",
     caseStudyHref: "/work/ad-cafe",
   },
 ];
