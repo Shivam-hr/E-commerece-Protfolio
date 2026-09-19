@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import usSupplementsPreview from "@/Images/us-supplements-preview.png";
+import goalImage from "../../../Images/the-goal.jpeg";
 
 const highlights = [
   { icon: Package, value: "250+", label: "Products" },
@@ -134,16 +135,26 @@ export default function USSupplementsOverview() {
       </section>
 
       {/* Key Highlights */}
-
     <section className="px-8 lg:px-16 pb-14">
       <div className="bg-card border border-accent rounded-card p-7">
         <div className="flex flex-wrap items-center justify-between gap-8">
-          {/* Stats — left side */}
-          <div className="flex flex-nowrap overflow-x-auto">
+          {/* Heading — left side */}
+          <div className="shrink-0">
+            <div className="font-heading text-lg tracking-[0.2em] text-mutedLight uppercase mb-1">
+              KEY
+            </div>
+            <h2 className="font-heading font-semibold text-4xl tracking-wide uppercase text-accent mb-1.5">
+              HIGHLIGHTS
+            </h2>
+            <div className="w-10 h-[3px] bg-accent rounded-full" />
+          </div>
+
+          {/* Stats — right side */}
+          <div className="flex flex-nowrap overflow-x-auto ml-0.5">
             {highlights.map(({ icon: Icon, value, label }, i) => (
               <div
                 key={label}
-                className={`flex flex-col items-start gap-2 px-7 shrink-0 first:pl-0 ${
+                className={`flex flex-col items-start gap-1 px-7 shrink-0 first:pl-0 ${
                   i !== highlights.length - 1 ? "border-r border-border" : ""
                 }`}
               >
@@ -154,17 +165,6 @@ export default function USSupplementsOverview() {
                 <div className="text-xs text-muted whitespace-nowrap">{label}</div>
               </div>
             ))}
-          </div>
-
-          {/* Heading — right side, unchanged from what you have now */}
-          <div className="shrink-0">
-            <div className="font-heading text-xs tracking-[0.2em] text-mutedLight uppercase mb-1">
-              KEY
-            </div>
-            <h2 className="font-heading font-semibold text-2xl tracking-wide uppercase text-accent mb-1.5">
-              HIGHLIGHTS
-            </h2>
-            <div className="w-10 h-[3px] bg-accent rounded-full" />
           </div>
         </div>
       </div>
@@ -230,9 +230,15 @@ export default function USSupplementsOverview() {
               </div>
 
               {/* Product image placeholder — swap for a real product/brand shot */}
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-white/60 border border-border flex items-center justify-center text-xs text-mutedLight">
-                Product image placeholder
-              </div>
+        <div className="relative w-full aspect-square overflow-hidden">
+          <Image
+            src={goalImage}
+            alt="The Goal"
+            fill
+            className="object-cover"
+            priority
+          />
+         </div>
             </div>
           </div>
         </div>
