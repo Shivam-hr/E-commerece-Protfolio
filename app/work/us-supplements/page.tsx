@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import CaseStudyTabNav from "@/components/case-study/CaseStudyTabNav";
 import {
   ArrowUpRight,
+  ArrowRight,
   Package,
   Tag,
   Smartphone,
@@ -23,6 +24,8 @@ import {
 import Image from "next/image";
 import usSupplementsPreview from "@/Images/us-supplements-preview.png";
 import goalImage from "../../../Images/the-goal.jpeg";
+import WhatsApp from "../../../Images/whatsapp-icon.png";
+import Email from "../../../Images/email-icon.png";
 
 const highlights = [
   { icon: Package, value: "250+", label: "Products" },
@@ -56,14 +59,16 @@ const goals = [
   "Automate order updates for customers and owner",
 ];
 
+// Each tech-stack entry renders EITHER a lucide `icon` component OR a static `image`
+// (for brand logos like WhatsApp/Email that come from an imported .png), never both.
 const techStack = [
   { label: "Next.js", icon: Triangle, iconBg: "bg-black text-white" },
   { label: "React", icon: Atom, iconBg: "bg-[#61DAFB]/25 text-[#149ECA]" },
   { label: "Tailwind CSS", icon: Wind, iconBg: "bg-[#38BDF8]/25 text-[#0EA5E9]" },
   { label: "Supabase", icon: Zap, iconBg: "bg-[#3ECF8E]/25 text-[#249361]" },
-  { label: "Razorpay", icon: CreditCard, iconBg: "bg-[#0A2540]/15 text-[#0A2540]" },
-  { label: "WhatsApp Integration", icon: MessageCircle, iconBg: "bg-[#25D366]/25 text-[#128C4A]" },
-  { label: "Email Integration", icon: MessageCircle, iconBg: "bg-[#EA4335]/20 text-[#C5221F]" },
+  { label: "Payment Integration", icon: CreditCard, iconBg: "bg-[#0A2540]/15 text-[#0A2540]" },
+  { label: "WhatsApp Integration", image: WhatsApp, iconBg: "bg-cardWarm" },
+  { label: "Email Integration", image: Email, iconBg: "bg-cardWarm" },
   { label: "Git / GitHub", icon: Github, iconBg: "bg-black/10 text-ink" },
   { label: "Netlify", icon: Rocket, iconBg: "bg-[#00C7B7]/25 text-[#00857A]" },
   { label: "Figma", icon: Palette, iconBg: "bg-[#F24E1E]/20 text-[#C2410C]" },
@@ -247,47 +252,65 @@ export default function USSupplementsOverview() {
       {/* Tech Stack */}
       <section className="px-8 lg:px-16 pb-16">
         <div className="bg-card border border-border rounded-card p-7">
-          <h2 className="font-heading font-semibold text-xl tracking-wide uppercase text-ink mb-1.5">
-            TECH <span className="text-accent">STACK</span>
-          </h2>
-          <div className="w-8 h-[3px] bg-accent rounded-full mb-4" />
-          <p className="text-muted text-[13px] mb-6 max-w-md">
-            A modern, scalable tech stack used to build a fast, secure and high-performance
-            e-commerce platform.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {techStack.map(({ label, icon: Icon, iconBg }) => (
-              <span
-                key={label}
-                className="flex items-center gap-2 bg-cardWarm border border-border rounded-[24px] pl-1.5 pr-4 py-1.5"
-              >
-                <span className={`w-6 h-6 rounded-full flex items-center justify-center ${iconBg}`}>
-                  <Icon size={13} />
-                </span>
-                <span className="text-xs font-medium text-ink">{label}</span>
-              </span>
-            ))}
+          <div className="flex flex-wrap items-center justify-between gap-8">
+            {/* Heading — left side */}
+            <div className="shrink-0 max-w-[220px]">
+              <h2 className="font-heading font-semibold text-xl tracking-wide uppercase text-ink mb-1.5">
+                TECH <span className="text-accent">STACK</span>
+              </h2>
+              <div className="w-8 h-[3px] bg-accent rounded-full mb-3" />
+              <p className="text-muted text-[13px] leading-relaxed">
+                A modern, scalable tech stack used to build a fast, secure and high-performance
+                e-commerce platform.
+              </p>
+            </div>
+
+            {/* Icons — circular, no card wrapper */}
+            <div className="flex flex-wrap gap-7">
+              {techStack.map(({ label, icon: Icon, image, iconBg }) => (
+                <div key={label} className="flex flex-col items-center gap-2 w-16">
+                  <span className={`w-12 h-12 rounded-full flex items-center justify-center overflow-hidden ${iconBg}`}>
+                    {Icon ? (
+                      <Icon size={20} />
+                    ) : image ? (
+                      <Image src={image} alt={label} width={24} height={24} className="object-contain" />
+                    ) : null}
+                  </span>
+                  <span className="text-[11px] font-medium text-ink text-center leading-tight">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Bottom nav strip */}
+      {/* Bottom nav strip — glassy */}
       <section className="px-8 lg:px-16 pb-16">
         <Link
           href="/work/us-supplements/process"
-          className="flex items-center justify-between bg-card border border-border rounded-card p-6 hover:border-ink transition-colors"
+          className="flex items-center justify-between gap-5 bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.06)] rounded-card p-6 hover:bg-white/55 transition-colors"
         >
-          <div>
-            <div className="font-heading text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-1">
-              NEXT UP
+          <div className="flex items-center gap-5">
+            <div className="shrink-0">
+              <div className="font-heading text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-1">
+                NEXT UP
+              </div>
+              <div className="font-display font-semibold text-lg text-ink">Process</div>
             </div>
-            <div className="font-display font-semibold text-lg text-ink">Process</div>
-            <div className="text-muted text-sm mt-1">
+            <span className="w-9 h-9 rounded-full border border-ink/25 flex items-center justify-center shrink-0">
+              <ArrowRight size={16} className="text-ink" />
+            </span>
+            <div className="text-muted text-sm">
               See how we researched, designed and built US Supplements.
             </div>
           </div>
-          <div className="flex gap-1.5">
+          <div className="flex gap-1.5 shrink-0">
             <span className="w-2 h-2 rounded-full bg-accent" />
+            <span className="w-2 h-2 rounded-full bg-border" />
+            <span className="w-2 h-2 rounded-full bg-border" />
+            <span className="w-2 h-2 rounded-full bg-border" />
             <span className="w-2 h-2 rounded-full bg-border" />
             <span className="w-2 h-2 rounded-full bg-border" />
             <span className="w-2 h-2 rounded-full bg-border" />
