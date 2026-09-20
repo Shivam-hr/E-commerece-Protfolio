@@ -333,15 +333,15 @@ export default function USSupplementsProcess() {
       </section>
 
       {/* 07. Brand Identity */}
-      <section className="px-8 lg:px-16 pb-14 ">
+      <section className="px-8 lg:px-16 pb-14">
         <div className="bg-card border border-border rounded-card p-7">
           <h2 className="font-heading font-semibold text-lg tracking-wide uppercase text-ink mb-7">
             07. <span className="text-accent">Brand Identity</span>
           </h2>
 
-          <div className="flex flex-wrap items-center gap-8">
+          <div className="flex flex-wrap items-center">
             {/* Logo */}
-            <div className="shrink-0">
+            <div className="shrink-0 mr-10">
               <div className="text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-3">Logo</div>
               {/* TODO(Shivam): swap for the real US Supplements logo image */}
               <div className="flex items-center gap-2.5">
@@ -360,10 +360,10 @@ export default function USSupplementsProcess() {
             </div>
 
             {/* thick divider */}
-            <div className="hidden sm:block w-[3px] h-14 bg-border rounded-full shrink-0" />
+            <div className="hidden sm:block w-[3px] h-14 bg-border rounded-full shrink-0 mr-10" />
 
             {/* Color Palette */}
-            <div className="shrink-0">
+            <div className="shrink-0 mr-10">
               <div className="text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-3">Color Palette</div>
               <div className="flex flex-wrap gap-3">
                 {palette.map(({ hex, swatch }) => (
@@ -376,10 +376,10 @@ export default function USSupplementsProcess() {
             </div>
 
             {/* thin divider */}
-            <div className="hidden sm:block w-px h-14 bg-border shrink-0" />
+            <div className="hidden sm:block w-px h-14 bg-border shrink-0 mr-10" />
 
             {/* Typography */}
-            <div className="shrink-0">
+            <div className="shrink-0 mr-6">
               <div className="text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-3">Typography</div>
               <div className="flex gap-6">
                 <div className="flex flex-col items-center gap-1">
@@ -401,8 +401,8 @@ export default function USSupplementsProcess() {
               </div>
             </div>
 
-            {/* UI Elements — pushed to top-right of the bar */}
-            <div className="sm:ml-auto">
+            {/* UI Elements */}
+            <div className="shrink-0">
               <div className="text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-3">UI Elements</div>
               <div className="grid grid-cols-2 gap-2.5">
                 <span className="bg-accent text-ink text-xs font-semibold px-4 py-2 rounded-btn flex items-center justify-center gap-1">
