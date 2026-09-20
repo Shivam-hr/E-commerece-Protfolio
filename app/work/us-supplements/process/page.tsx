@@ -125,20 +125,20 @@ export default function USSupplementsProcess() {
       <section className="px-8 lg:px-16 pb-10">
         <div className="grid lg:grid-cols-[0.8fr_1.6fr] gap-10 items-center">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-accent inline-block" />
-              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-ink">
+            <div className="flex items-center gap-2 mb-5">
+              <span className="w-2.5 h-2.5 rounded-full bg-accent inline-block" />
+              <span className="text-sm font-semibold tracking-[0.15em] uppercase text-ink">
                 The Process
               </span>
             </div>
 
-            <h1 className="font-display font-semibold text-[38px] sm:text-5xl leading-[1.1] tracking-tight text-ink mb-5">
+            <h1 className="font-display font-semibold text-[46px] sm:text-6xl lg:text-[64px] leading-[1.05] tracking-tight text-ink mb-6">
               How We Built
               <br />
               <span className="font-serif italic font-medium text-accent">US Supplements</span>
             </h1>
 
-            <p className="text-muted text-base leading-relaxed max-w-sm">
+            <p className="text-muted text-lg leading-relaxed max-w-md">
               A clear, step-by-step journey from research and design to development and a live,
               high-performance store.
             </p>
@@ -177,8 +177,10 @@ export default function USSupplementsProcess() {
                 </p>
                 <ul className="space-y-2.5 md:border-l md:border-border md:pl-8">
                   {challenges.map((c) => (
-                    <li key={c} className="flex items-start gap-2 text-[13.5px] text-ink">
-                      <X size={14} className="text-red-400 shrink-0 mt-0.5" />
+                    <li key={c} className="flex items-start gap-2.5 text-[13.5px] text-ink">
+                      <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center">
+                        <X size={11} className="text-ink" />
+                      </span>
                       {c}
                     </li>
                   ))}
@@ -315,12 +317,12 @@ export default function USSupplementsProcess() {
 
           <div className="grid grid-cols-3 sm:grid-cols-5 gap-y-7 gap-x-4">
             {features.map(({ label, icon: Icon, image }) => (
-              <div key={label} className="flex flex-col items-center text-center gap-2">
-                <span className="w-11 h-11 rounded-full border border-border flex items-center justify-center overflow-hidden">
+              <div key={label} className="flex flex-col items-center text-center gap-2.5">
+                <span className="w-16 h-16 rounded-full border border-border flex items-center justify-center overflow-hidden">
                   {Icon ? (
-                    <Icon size={18} className="text-ink" />
+                    <Icon size={26} className="text-ink" />
                   ) : image ? (
-                    <Image src={image} alt={label} width={18} height={18} className="object-contain" />
+                    <Image src={image} alt={label} width={26} height={26} className="object-contain" />
                   ) : null}
                 </span>
                 <span className="text-[11.5px] text-ink leading-tight">{label}</span>
@@ -331,24 +333,37 @@ export default function USSupplementsProcess() {
       </section>
 
       {/* 07. Brand Identity */}
-      <section className="px-8 lg:px-16 pb-14">
+      <section className="px-8 lg:px-16 pb-14 ">
         <div className="bg-card border border-border rounded-card p-7">
           <h2 className="font-heading font-semibold text-lg tracking-wide uppercase text-ink mb-7">
             07. <span className="text-accent">Brand Identity</span>
           </h2>
 
-          <div className="grid sm:grid-cols-4 gap-8">
-            {/* Logo — placeholder */}
-            <div>
+          <div className="flex flex-wrap items-center gap-8">
+            {/* Logo */}
+            <div className="shrink-0">
               <div className="text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-3">Logo</div>
-              {/* TODO(Shivam): swap for the real US Supplements logo */}
-              <div className="w-full aspect-[4/3] rounded-xl border-2 border-dashed border-border bg-cardWarm flex items-center justify-center">
-                <ImageIcon size={20} className="text-mutedLight" />
+              {/* TODO(Shivam): swap for the real US Supplements logo image */}
+              <div className="flex items-center gap-2.5">
+                <span className="w-9 h-9 rounded-md bg-accent flex items-center justify-center shrink-0">
+                  <span className="font-display font-extrabold text-ink text-sm">US</span>
+                </span>
+                <div>
+                  <div className="font-display font-extrabold text-ink text-[17px] tracking-tight leading-none">
+                    SUPPLEMENTS
+                  </div>
+                  <div className="text-accent text-[9px] font-semibold tracking-[0.2em] mt-1.5">
+                    — FUEL YOUR GOALS —
+                  </div>
+                </div>
               </div>
             </div>
 
+            {/* thick divider */}
+            <div className="hidden sm:block w-[3px] h-14 bg-border rounded-full shrink-0" />
+
             {/* Color Palette */}
-            <div>
+            <div className="shrink-0">
               <div className="text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-3">Color Palette</div>
               <div className="flex flex-wrap gap-3">
                 {palette.map(({ hex, swatch }) => (
@@ -360,8 +375,11 @@ export default function USSupplementsProcess() {
               </div>
             </div>
 
+            {/* thin divider */}
+            <div className="hidden sm:block w-px h-14 bg-border shrink-0" />
+
             {/* Typography */}
-            <div>
+            <div className="shrink-0">
               <div className="text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-3">Typography</div>
               <div className="flex gap-6">
                 <div className="flex flex-col items-center gap-1">
@@ -383,22 +401,22 @@ export default function USSupplementsProcess() {
               </div>
             </div>
 
-            {/* UI Elements */}
-            <div>
+            {/* UI Elements — pushed to top-right of the bar */}
+            <div className="sm:ml-auto">
               <div className="text-[11px] tracking-[0.15em] text-mutedLight uppercase mb-3">UI Elements</div>
-              <div className="flex flex-col items-start gap-2">
-                <span className="bg-accent text-ink text-xs font-semibold px-4 py-2 rounded-btn flex items-center gap-1">
+              <div className="grid grid-cols-2 gap-2.5">
+                <span className="bg-accent text-ink text-xs font-semibold px-4 py-2 rounded-btn flex items-center justify-center gap-1">
                   Shop Now <ArrowRight size={13} />
                 </span>
-                <span className="border border-[#D8D2C4] text-ink text-xs font-medium px-4 py-2 rounded-btn">
-                  View Details
-                </span>
-                <div className="flex items-center gap-2 border border-border rounded-btn px-2 py-1">
+                <div className="flex items-center justify-center gap-2 border border-border rounded-btn px-2 py-2">
                   <span className="text-ink text-xs px-1">−</span>
                   <span className="text-ink text-xs">1</span>
                   <span className="text-ink text-xs px-1">+</span>
                 </div>
-                <span className="bg-ink text-white text-[11px] font-medium px-3 py-1.5 rounded-full">
+                <span className="border border-[#D8D2C4] text-ink text-xs font-medium px-4 py-2 rounded-btn flex items-center justify-center">
+                  View Details
+                </span>
+                <span className="bg-ink text-white text-[11px] font-medium px-3 py-2 rounded-full flex items-center justify-center">
                   ✓ Added to cart
                 </span>
               </div>
