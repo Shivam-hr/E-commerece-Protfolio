@@ -27,6 +27,19 @@ import {
 } from "lucide-react";
 import usSupplementsPreview from "@/Images/us-supplements-preview.png";
 import WhatsApp from "@/Images/whatsapp-icon.png";
+import homepageWireframe from "@/Images/wireframes/homepage.png";
+import categoryWireframe from "@/Images/wireframes/category.png";
+import productWireframe from "@/Images/wireframes/product.png";
+import cartWireframe from "@/Images/wireframes/cart.png";
+import checkoutWireframe from "@/Images/wireframes/checkout.png";
+
+//UI Design
+
+import homepageDesign from "@/Images/ui-design/homepage.png";
+
+// import productDesign from "@/Images/ui-design/product.png";
+// import cartDesign from "@/Images/ui-design/cart.png";
+// import checkoutDesign from "@/Images/ui-design/checkout.png";
 
 const challenges = [
   "No existing website or digital presence",
@@ -75,11 +88,23 @@ const processSteps = [
   },
 ];
 
-// TODO(Shivam): swap each placeholder for the real wireframe export
-const wireframes = ["Homepage", "Category Page", "Product Page", "Cart Page", "Checkout Page"];
+// TODO(Shivam): add image: productWireframe / cartWireframe / checkoutWireframe once you export them
+const wireframes = [
+  { label: "Homepage", image: homepageWireframe },
+  { label: "Category Page", image: categoryWireframe },
+  { label: "Product Page", image: productWireframe },
+  { label: "Cart Page", image: cartWireframe },
+  { label: "Checkout Page", image: checkoutWireframe },
+];
 
 // TODO(Shivam): swap each placeholder for the real UI screenshot
-const uiDesigns = ["Homepage Design", "Product Page Design", "Cart Drawer Design", "Checkout Design"];
+const uiDesigns = [
+  { label: "Homepage Design", image: homepageDesign },
+  { label: "Product Page Design", image: undefined },
+  { label: "Cart Drawer Design", image: undefined },
+  { label: "Checkout Design", image: undefined },
+];
+
 
 const devStack = [
   { label: "Next.js + React", desc: "For a fast, SEO-friendly frontend.", icon: Triangle, iconBg: "bg-black text-white" },
@@ -234,11 +259,17 @@ export default function USSupplementsProcess() {
             </div>
 
             <div className="flex-1 grid grid-cols-2 sm:grid-cols-5 gap-4 min-w-[260px]">
-              {wireframes.map((label) => (
+              {wireframes.map(({ label, image }) => (
                 <div key={label} className="flex flex-col gap-2">
-                  <div className="aspect-[4/3] rounded-xl border-2 border-dashed border-border bg-cardWarm flex items-center justify-center">
-                    <ImageIcon size={20} className="text-mutedLight" />
-                  </div>
+                  {image ? (
+                    <div className="relative aspect-[4/3] rounded-xl border border-border overflow-hidden">
+                      <Image src={image} alt={label} fill className="object-cover" />
+                    </div>
+                  ) : (
+                    <div className="aspect-[4/3] rounded-xl border-2 border-dashed border-border bg-cardWarm flex items-center justify-center">
+                      <ImageIcon size={20} className="text-mutedLight" />
+                    </div>
+                  )}
                   <span className="text-[11px] text-muted text-center">{label}</span>
                 </div>
               ))}
@@ -261,16 +292,22 @@ export default function USSupplementsProcess() {
               </p>
             </div>
 
-            <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-4 min-w-[260px]">
-              {uiDesigns.map((label) => (
-                <div key={label} className="flex flex-col gap-2">
+              <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-4 min-w-[260px]">
+            {uiDesigns.map(({ label, image }) => (
+              <div key={label} className="flex flex-col gap-2">
+                {image ? (
+                  <div className="relative aspect-video rounded-xl border border-border overflow-hidden bg-ink/5">
+                    <Image src={image} alt={label} fill className="object-contain" />
+                  </div>
+                ) : (
                   <div className="aspect-video rounded-xl border-2 border-dashed border-border bg-ink/5 flex items-center justify-center">
                     <ImageIcon size={20} className="text-mutedLight" />
                   </div>
-                  <span className="text-[11px] text-muted text-center">{label}</span>
-                </div>
-              ))}
-            </div>
+                )}
+                <span className="text-[11px] text-muted text-center">{label}</span>
+              </div>
+            ))}
+          </div>
           </div>
         </div>
       </section>
