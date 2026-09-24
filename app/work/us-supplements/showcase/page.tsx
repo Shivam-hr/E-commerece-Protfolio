@@ -14,31 +14,29 @@ import {
 } from "lucide-react";
 import usSupplementsPreview from "@/Images/us-supplements-preview.png";
 
-// TODO(Shivam): add each screenshot the same way, e.g.:
-// import homepageDesktop from "@/Images/showcase/desktop/homepage.png";
-// import categoryDesktop from "@/Images/showcase/desktop/category.png";
-// import productDesktop from "@/Images/showcase/desktop/product.png";
-// import cartDesktop from "@/Images/showcase/desktop/cart.png";
-// import checkoutDesktop from "@/Images/showcase/desktop/checkout.png";
-// import orderTrackingDesktop from "@/Images/showcase/desktop/order-tracking.png";
-// import wishlistDesktop from "@/Images/showcase/desktop/wishlist.png";
-// import supportDesktop from "@/Images/showcase/desktop/support.png";
+import homepageDesktop from "@/Images/desktop/homepage.png";
+import categoryDesktop from "@/Images/desktop/category.png";
+import productDesktop from "@/Images/desktop/product.png";
+import cartDesktop from "@/Images/desktop/cart.png";
+import checkoutDesktop from "@/Images/desktop/checkout.png";
+// import orderTrackingDesktop from "@/Images/desktop/order-tracking.png";
+// import wishlistDesktop from "@/Images/desktop/wishlist.png";
+// import supportDesktop from "@/Images/desktop/support.png";
 
-// TODO(Shivam): once you import them above, set image: homepageDesktop etc. below
 const desktopScreens = [
-  { n: "01", label: "Homepage", image: undefined },
-  { n: "02", label: "Category Page", image: undefined },
-  { n: "03", label: "Product Page", image: undefined },
-  { n: "04", label: "Cart Page", image: undefined },
-  { n: "05", label: "Checkout", image: undefined },
+  { n: "01", label: "Homepage", image: homepageDesktop },
+  { n: "02", label: "Category Page", image: categoryDesktop },
+  { n: "03", label: "Product Page", image: productDesktop },
+  { n: "04", label: "Cart Page", image: cartDesktop },
+  { n: "05", label: "Checkout", image: checkoutDesktop },
   { n: "06", label: "Order Tracking", image: undefined },
   { n: "07", label: "Wishlist Page", image: undefined },
   { n: "08", label: "Support Page", image: undefined },
 ];
 
 // TODO(Shivam): add each mobile screenshot the same way, e.g.:
-// import homeMobile from "@/Images/showcase/mobile/home.png";
-// import categoryMobile from "@/Images/showcase/mobile/category.png";
+// import homeMobile from "@/Images/mobile/home.png";
+// import categoryMobile from "@/Images/mobile/category.png";
 // ...etc, one per screen below
 
 const mobileScreens = [
@@ -53,11 +51,11 @@ const mobileScreens = [
 ];
 
 // TODO(Shivam): add a single combined desktop+tablet+mobile mockup image, e.g.:
-// import responsiveMockup from "@/Images/showcase/responsive-devices.png";
+// import responsiveMockup from "@/Images/responsive-devices.png";
 const responsiveMockup = undefined;
 
 // TODO(Shivam): add 3-5 extra gallery screenshots, e.g.:
-// import galleryOne from "@/Images/showcase/gallery-1.png";
+// import galleryOne from "@/Images/gallery-1.png";
 const galleryImages: { label: string; image: undefined }[] = [
   { label: "Homepage Hero", image: undefined },
   { label: "Top Brands", image: undefined },
@@ -67,7 +65,7 @@ const galleryImages: { label: string; image: undefined }[] = [
 ];
 
 // TODO(Shivam): add a product bottle/shaker photo for the final CTA, e.g.:
-// import ctaProductShot from "@/Images/showcase/cta-products.png";
+// import ctaProductShot from "@/Images/cta-products.png";
 const ctaProductShot = undefined;
 
 export default function USSupplementsShowcase() {
