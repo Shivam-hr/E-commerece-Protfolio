@@ -36,10 +36,9 @@ import checkoutWireframe from "@/Images/wireframes/checkout.png";
 //UI Design
 
 import homepageDesign from "@/Images/ui-design/homepage.png";
-
-// import productDesign from "@/Images/ui-design/product.png";
-// import cartDesign from "@/Images/ui-design/cart.png";
-// import checkoutDesign from "@/Images/ui-design/checkout.png";
+import productDesign from "@/Images/ui-design/product.png";
+import cartDesign from "@/Images/ui-design/cart.png";
+import checkoutDesign from "@/Images/ui-design/checkout.png";
 
 const challenges = [
   "No existing website or digital presence",
@@ -100,9 +99,9 @@ const wireframes = [
 // TODO(Shivam): swap each placeholder for the real UI screenshot
 const uiDesigns = [
   { label: "Homepage Design", image: homepageDesign },
-  { label: "Product Page Design", image: undefined },
-  { label: "Cart Drawer Design", image: undefined },
-  { label: "Checkout Design", image: undefined },
+  { label: "Product Page Design", image: productDesign },
+  { label: "Cart Drawer Design", image: cartDesign },
+  { label: "Checkout Design", image: checkoutDesign },
 ];
 
 
