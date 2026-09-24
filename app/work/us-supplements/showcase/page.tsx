@@ -15,7 +15,7 @@ import {
 import usSupplementsPreview from "@/Images/us-supplements-preview.png";
 
 import homepageDesktop from "@/Images/desktop/homepage.png";
-import categoryDesktop from "@/Images/desktop/category.png";
+// import categoryDesktop from "@/Images/desktop/category.png";
 import productDesktop from "@/Images/desktop/product.png";
 import cartDesktop from "@/Images/desktop/cart.png";
 import checkoutDesktop from "@/Images/desktop/checkout.png";
@@ -25,7 +25,7 @@ import checkoutDesktop from "@/Images/desktop/checkout.png";
 
 const desktopScreens = [
   { n: "01", label: "Homepage", image: homepageDesktop },
-  { n: "02", label: "Category Page", image: categoryDesktop },
+//   { n: "02", label: "Category Page", image: categoryDesktop },
   { n: "03", label: "Product Page", image: productDesktop },
   { n: "04", label: "Cart Page", image: cartDesktop },
   { n: "05", label: "Checkout", image: checkoutDesktop },
